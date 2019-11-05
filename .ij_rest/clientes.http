@@ -1,0 +1,43 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+
+GET /api/v1/clientes/
+Host: {{host}}
+Cache-Control: no-cache
+Accept: application/json;charset=UTF-8
+Content-Type: application/json
+
+###
+
+POST /api/v1/clientes/
+Host: {{host}}
+Cache-Control: no-cache
+Accept: application/json;charset=UTF-8
+Content-Type: application/json
+
+{"id": "", "cpf": "00000000010", "nome": "Luan Roger", "sobrenome": "Santos Santana" }
+
+###
+
+GET /api/v1/clientes/1
+Host: {{host}}
+Cache-Control: no-cache
+Accept: application/json;charset=UTF-8
+Content-Type: application/json
+
+###
+
+DELETE /api/v1/clientes/3
+Host: {{host}}
+Cache-Control: no-cache
+Accept: application/json;charset=UTF-8
+Content-Type: application/json
+
+{"id": 3, "cpf": "00000000010", "nome": "Luan Roger", "sobrenome": "Santos Santana"}
+###
+
