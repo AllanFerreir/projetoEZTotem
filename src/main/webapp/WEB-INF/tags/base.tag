@@ -46,6 +46,11 @@
         <h1 class="h2"><jsp:invoke fragment="subtitle"/></h1>
     </div>
 </nav>
+<div>
+<a href="<c:url value="/clientes"/>">
+    <img src="../../images/cart.png" style="z-index: 999 !important;position: fixed;width: 110px;top: 80vh;left: 5vw;cursor: pointer;">
+</a>
+</div>
 
 <div class="container-fluid">
     <div class="row">
@@ -65,7 +70,6 @@
             </div>
         </nav>
     </div>
-
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" id="js-main">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <div class="btn-toolbar mb-2 mb-md-0">
@@ -87,7 +91,11 @@
 
 
 
+<script>
 
+    cart = [];
+
+</script>
 
 <script src="<c:url value="/webjars/jquery/3.3.1/jquery.min.js"/>"></script>
 <script src="<c:url value="/static/js/base.js"/>"></script>

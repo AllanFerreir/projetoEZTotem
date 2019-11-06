@@ -13,12 +13,10 @@
         Produtos
     </jsp:attribute>
 
-
     <jsp:attribute name="body">
         <c:if test="${editar || criar}">
             <jsp:include page="fragments/produto/formulario.jsp"/>
         </c:if>
-
 
         <c:if test="${listar != null}">
             <jsp:include page="fragments/produto/tabela.jsp"/>

@@ -12,13 +12,21 @@ VALUES
 -- 2
 ('Lápis 2B', 'bebida', 13),
 -- 3
-('Caneta Esferográfica BIC Azul', 'bebida', 14),
+('X-tuts', 'bebida', 14),
 -- 4
-('Caneta Esferográfica Pentel Azul', 'lanche', 15),
+('X-blah', 'lanche', 15),
 -- 5
-('Caneta Esferográfica BIC Preta' , 'lanche', 16),
+('X-Burger' , 'lanche', 16),
 -- 6
-('Caneta Esferográfica Pentel Preta', 'lanche', 17);
+('X-Burger Duplo ', 'lanche', 17),
+
+('X-Burger Triplo' , 'lanche', 18),
+
+('X-Burger com Ovo' , 'lanche', 20),
+
+('X-Burger Duplo com Ovo' , 'lanche', 23),
+
+('X-Burger Triplo com Ovo' , 'lanche', 27);
 
 INSERT INTO pedido (data_pedido, id_cliente)
 VALUES

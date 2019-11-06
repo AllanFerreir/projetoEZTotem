@@ -5,23 +5,24 @@
 <%@taglib prefix="func" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <tp:table_dark>
-    <jsp:attribute name="header">
-        <th scope="col">Descrição</th>
-    </jsp:attribute>
-
     <jsp:attribute name="content">
         <c:choose>
             <c:when test="${func:length(produtos) gt 0}">
                 <c:forEach var="produto" items="${produtos}">
                     <tr id="produto-${produto.id}" style="height: 200px">
                         <td id="cart">
-                            <c:if test="${func:length(produto.descricao) < 1}"> - </c:if>${produto.descricao}
-                            <button class="btn btn-button float-rifht" value="${produto.valor}" onclick="teste(this.value)" >testeeeee</button>
-                            <script>
-                                var cart = 0;
+                            <img src="../../images/${produto.id}.jpg" width="200">
+                            <c:if test="${func:length(produto.descricao) < 1}"> - </c:if>
 
+                            <button class="btn btn-button float-right" value="${produto.value}" onclick="teste(this.value)" style="width: 115px; height: 40px; margin-top: 70px; padding-right: 20px">ADICIONAR</button>
+                            <h2 style="text-align: center; width:500px; float:right; padding-top: 70px;">R$${produto.value}</h2>
+                            <h2 style="text-align: center; width:500px; float:right; padding-top: 70px;">${produto.descricao}</h2>
+
+                            <script>
                                 function teste(value){
-                                    cart += value;
+                                    var produtoVal = {value};
+                                    cart.push(produtoVal);
+                                    request.getSession().setAttribute(cart, cart);
                                     console.log(cart);
                                 }
                             </script>

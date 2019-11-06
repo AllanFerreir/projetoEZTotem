@@ -34,7 +34,7 @@ public class Produto implements Serializable {
     private String categoria;
 
     @Length(max = 45)
-    @Column(name = "valuer", length = 45, nullable = false)
+    @Column(name = "value", length = 45, nullable = false)
     private Double value;
 
     public Integer getId() {
