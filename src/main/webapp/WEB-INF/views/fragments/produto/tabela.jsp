@@ -27,14 +27,20 @@
 
                                     var descricao = fields[0];
                                     var valor = fields[1];
-
                                     var cart = JSON.parse(localStorage.getItem("cart"));
+                                    if(cart == null){
+                                        var cart=[];
+                                        localStorage.setItem("cart",JSON.stringify(cart));
+                                    };
+
                                     var produtoVal = {valor , descricao};
                                     cart.push(produtoVal);
 
-                                    console.log(cart);
+
 
                                     localStorage.setItem("cart",JSON.stringify(cart));
+
+                                    console.log(cart);
 
                                 };
 

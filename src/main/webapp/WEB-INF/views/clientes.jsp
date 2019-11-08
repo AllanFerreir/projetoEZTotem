@@ -27,6 +27,8 @@
     <jsp:attribute name="body">
         <c:if test="${editar || criar}">
             <jsp:include page="fragments/cliente/formulario.jsp"/>
+
+
         </c:if>
 
 
@@ -38,9 +40,9 @@
                             <thead>
                                 <tr>
                                     <th>Product</th>
-                                    <th>Quantity</th>
+                                    <th></th>
                                     <th class="text-center">Price</th>
-                                    <th class="text-center">Total</th>
+                                    <th class="text-center"></th>
                                     <th> </th>
                                 </tr>
                             </thead>
@@ -50,16 +52,31 @@
                                     cart2 = cart;
                                     console.log('cart',cart);
 
-                                    var total = 0;
+                                    var total = 0.00;
+
 
                                     $.each(cart2, function (index, array) {
-                                    $('#tabela').append('<tr><td class="col-sm-8 col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a><div class="media-body"><h4 class="media-heading"><a href="#">'+ this.valor +'</a></h4><h5 class="media-heading"></strong></span></div></div></td><td class="col-sm-1 col-md-1" style="text-align: center"> <input type="email" class="form-control" id="exampleInputEmail1" value="3"></td><td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td><td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td><td class="col-sm-1 col-md-1"> <button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-remove"></span> Remove </button></td></tr>');
-                                            total += parseInt(this.descricao);
-                                            console.log(total)
+                                    var index = cart2.indexOf(array);
+                                    $('#tabela').append('<tr id=remove'+index+'><td class="col-sm-8 col-md-6"><div class="media"> <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a><div class="media-body"><h4 class="media-heading"><a href="#">'+ this.valor +'</a></h4><h5 class="media-heading"></strong></span></div></div></td><td></td><td class="col-sm-1 col-md-1 text-center"><strong style="font-size:30px">R$ ' + this.descricao + '0</strong></td><td></td><td class="col-sm-1 col-md-1"> <button type="button" class="btn btn-danger" onclick="remove('+index+','+this.descricao+')";console.log(cart2)"> <span class="glyphicon glyphicon-remove" ></span> Remove </button></td></tr>');
+                                        total += parseFloat(this.descricao);
+                                        console.log(index)
+                                    });
 
-                                        });
+                                    $(document).ready(function() {
+                                        $('#total').text("R$" + total)
+                                    });
 
-                                    $('#total').text(toString(total))
+                                    function remove(index, valor){
+                                        $("#remove"+index).empty();
+                                        cart2.splice(index, 1);
+                                        console.log(cart);
+                                        total -= parseFloat(valor);
+                                        $('#total').text("R$" + total);
+                                        cart = cart2;
+                                        localStorage.setItem("cart",JSON.stringify(cart));
+                                    }
+
+
 
                                 </script>
 
@@ -69,7 +86,7 @@
                                     <td>   </td>
                                     <td>   </td>
                                     <td><h3>Total</h3></td>
-                                    <td class="text-right"><p id="total"></p></td>
+                                    <td class="text-right"><p id="total" style="font-size:50px;float:left"></p></td>
                                 </tr>
                                 <tr>
                                     <td>   </td>
