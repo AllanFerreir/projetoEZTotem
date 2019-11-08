@@ -11,6 +11,15 @@
     </jsp:attribute>
     <jsp:attribute name="subtitle">
         Produtos
+
+        <a onclick="limpar();" class="btn btn-sm btn-outline-primary float-right" style="border-color:white;margin-top:7px">Limpar Carrinho</a>
+
+        <script>
+        function limpar(){
+        cart=[];
+        localStorage.setItem("cart",JSON.stringify(cart));
+        }
+          </script>
     </jsp:attribute>
 
     <jsp:attribute name="body">

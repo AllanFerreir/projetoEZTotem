@@ -4,6 +4,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="func" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<script>
+
+var cart = JSON.parse(localStorage.getItem("cart"));
+
+
+</script>
+
 <tp:table_dark>
     <jsp:attribute name="header">
         <th scope="col">#</th>
@@ -14,13 +21,13 @@
         <th></th>
     </jsp:attribute>
 
-    <jsp:attribute name="content">
+    <jsp:attribute name="content" >
         <c:choose>
-            <c:when test="${func:length(clientes) gt 0}">
-                <c:forEach var="cliente" items="${clientes}">
-                    <tr id="cliente-${cliente.id}">
+            <c:when test="${func:length(cart) gt 0}">
+                <c:forEach var="cart" items="${cart}">
+                    <tr >
                         <th scope="row">${cliente.id}</th>
-                        <td><c:if test="${func:length(cliente.cpf) < 1}"> - </c:if>${cliente.cpf}</td>
+                        <td><c:if test="${func:length(cart.value) < 1}"> - </c:if>${cliente.cpf}</td>
                         <td><c:if test="${func:length(cliente.nome) < 1}"> - </c:if>${cliente.nome}</td>
                         <td><c:if test="${func:length(cliente.sobrenome) < 1}"> - </c:if>${cliente.sobrenome}</td>
                         <td class="text-center">

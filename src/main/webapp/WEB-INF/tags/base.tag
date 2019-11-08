@@ -25,6 +25,7 @@
     <meta charset="UTF-8">
     <link href="<c:url value="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"/>" rel="stylesheet" media="screen"/>
     <link href="<c:url value="/static/css/dashboard.css"/>" rel="stylesheet" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <jsp:invoke fragment="cssLinks"/>
 
@@ -88,15 +89,16 @@
         </div>
     </main>
 </div>
-
-
-
 <script>
 
-    cart = [];
+console.log(localStorage.getItem("teste"));
 
+var cart = JSON.parse(localStorage.getItem("teste"));
+
+console.log(teste);
+
+    if (cart == undefined){ var cart=[]}
 </script>
-
 <script src="<c:url value="/webjars/jquery/3.3.1/jquery.min.js"/>"></script>
 <script src="<c:url value="/static/js/base.js"/>"></script>
 <script src="<c:url value="/static/js/sidebar.js"/>"></script>

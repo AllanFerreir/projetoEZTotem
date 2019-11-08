@@ -14,17 +14,30 @@
                             <img src="../../images/${produto.id}.jpg" width="200">
                             <c:if test="${func:length(produto.descricao) < 1}"> - </c:if>
 
-                            <button class="btn btn-button float-right" value="${produto.value}" onclick="teste(this.value)" style="width: 115px; height: 40px; margin-top: 70px; padding-right: 20px">ADICIONAR</button>
-                            <h2 style="text-align: center; width:500px; float:right; padding-top: 70px;">R$${produto.value}</h2>
+                            <button class="btn btn-button float-right" value="${produto.value}/${produto.descricao}" onclick="teste(this.value)" style="width: 115px; height: 40px; margin-top: 70px; padding-right: 20px">ADICIONAR</button>
+                            <h2 style="text-align: center; width:500px; float:right; padding-top: 70px;">R$ ${produto.value}0</h2>
                             <h2 style="text-align: center; width:500px; float:right; padding-top: 70px;">${produto.descricao}</h2>
 
                             <script>
+
                                 function teste(value){
-                                    var produtoVal = {value};
+                                    var input = value;
+
+                                    var fields = input.split('/');
+
+                                    var descricao = fields[0];
+                                    var valor = fields[1];
+
+                                    var cart = JSON.parse(localStorage.getItem("cart"));
+                                    var produtoVal = {valor , descricao};
                                     cart.push(produtoVal);
-                                    request.getSession().setAttribute(cart, cart);
+
                                     console.log(cart);
-                                }
+
+                                    localStorage.setItem("cart",JSON.stringify(cart));
+
+                                };
+
                             </script>
                         </td>
 
